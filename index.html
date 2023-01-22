@@ -3,14 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Nabla&display=swap");
 
  	h1 {
-      font-size: 50px;
-      line-height: 50px;
+      font-size: 100px;
+      line-height: 100px;
       word-wrap: anywhere; 
     	font-family: "Nabla", cursive;
     }
   p {
       font-size: 50px;
-      line-height: 15px;
+      line-height: 60px;
       word-wrap: anywhere; 
     	font-family: "Solitreo", cursive;
     	font-style: auto-flow;
@@ -20,53 +20,83 @@
 
 <body>
 	<center>
-		<h1>Wonderland of Totoros</h1>
-		<p> by Miki Yang </p>
+		<h1>Happy Year of the Rabbit</h1>
+		<p> Hope you have the best day with your family and loved ones! </p>
   </center>
 </body>
 
 <script>
-  const bgColor = 'white'
-  const gifURL = 'https://i.pinimg.com/originals/9d/d1/a0/9dd1a0c90caa865e3718947e2b91d35e.gif' 
-  let xOffset = 75
-  let yOffset = 75
-  let x = window.innerWidth / 2 - xOffset
-  let y = window.innerHeight / 2 - yOffset
-  const gifOffsetX = 10
-  const gifOffsetY = 10
+  
+  const gifWidth = 180
+  const gifHeight = 180
+  const numColumns = 1
+  const numRows = 1
+  const gifOffsetX = 5
+  const gifOffsetY = -window.innerHeight * 0.00001
+	const gifURL = 'https://cliply.co/wp-content/uploads/2021/09/CLIPLY_372109170_FREE_FIREWORKS_400.gif'
 
   function createGif(x, y) {
-    // add image element to the page
     const gif = document.createElement('img')
-    gif.src = gifURL + '#' + Math.random()
-    document.body.appendChild(gif)
-    // change img element's CSS position
+    gif.src = gifURL + '#' + Math.random () // trick the browser to load diff images when you in fact have only one image
     gif.style.position = 'absolute'
-    gif.style.left = x + 'px'
     gif.style.top = y + 'px'
-  }
-
-  function createGifCircle(num, scale, radius, n, k) {
-    for (let i = 0; i < num; i++) {
-      const cx = window.innerWidth / n - gifOffsetX
-      const cy = window.innerHeight / k - gifOffsetY
-      const x = Math.sin(i * scale) * radius + cx
-      const y = Math.cos(i * scale) * radius + cy
-      createGif(x, y)
-    }
+    gif.style.left = x + 'px'
+    document.body.appendChild(gif)
   }
 
   function setup() {
-    document.body.style.backgroundColor = bgColor
-    document.body.style.overflow = 'hidden'
-    createGifCircle(4, 0.5, 300, 1.5, 3)
-  }
-  
-  function setup2() {
-    createGifCircle(4, 0.5, 200, 100, 100)
+    for (let r = 0; r < numRows; r++) {
+      for (let c = 0; c < numColumns; c++) {
+        const x = c * gifWidth - gifOffsetX
+        const y = r * gifHeight + 4 * gifOffsetY
+        createGif(x, y) 
+        console.log ('created gif')
+    }
   }
 
+  document.body.style.backgroundColor = '#800000'
+  document.body.style.overflow = 'hidden'
+  }
+  
   window.addEventListener('load', setup)
-  window.addEventListener('load', setup2)
+
 </script>
+
+<script>
+  
+  const gifWidth = 180
+  const gifHeight = 180
+  const gifOffsetX = 5
+  const gifOffsetY = -window.innerHeight * 0.00001
+  const numColumns = 3
+  const numRows = 3
+	const gifURL = 'https://cutewallpaper.org/cdn-cgi/mirage/879d3f56044898301ccabab4a8a90586cd5663eca603a14193df05b49a03034b/1280/24/transparent-fireworks-gif/via-giphy-fireworks-gif-overlays-picsart-fireworks-animation.gif'
+
+  function createGif(x, y) {
+    const gif = document.createElement('img')
+    gif.src = gifURL + '#' + Math.random () // trick the browser to load diff images when you in fact have only one image
+    gif.style.position = 'absolute'
+    gif.style.top = y + 'px'
+    gif.style.left = x + 'px'
+    document.body.appendChild(gif)
+  }
+
+  function setup() {
+    for (let r = 0; r < numRows; r++) {
+      for (let c = 0; c < numColumns; c++) {
+        const x = c * gifWidth - gifOffsetX
+        const y = r * gifHeight - gifOffsetY
+        createGif(x, y) // abstraction
+        console.log ('created gif')
+    }
+  }
+  }
+
+    window.addEventListener('load', setup)
+
+
+</script>
+
+
+
 
