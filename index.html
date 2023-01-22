@@ -20,27 +20,27 @@
 
 <body>
 	<center>
-		<h1>Happy Year of the Rabbit</h1>
+		<h1>Happy Lunar New Year</h1>
 		<p> Hope you have the best day with your family and loved ones! </p>
   </center>
 </body>
 
 <script>
   
-  let gifWidth = 180
-  let gifHeight = 180
-  let numColumns = 1
-  let numRows = 1
+  let gifWidth = 200
+  let gifHeight = 200
+  let numColumns = 20
+  let numRows = 20
   let gifOffsetX = 5
   let gifOffsetY = -window.innerHeight * 0.00001
 	let gifURL = 'https://cliply.co/wp-content/uploads/2021/09/CLIPLY_372109170_FREE_FIREWORKS_400.gif'
 
   function createGif(x, y) {
     const gif = document.createElement('img')
-    gif.src = gifURL + '#' + Math.random () // trick the browser to load diff images when you in fact have only one image
+    gif.src = gifURL + '#' + Math.random () 
     gif.style.position = 'absolute'
-    gif.style.top = y + 'px'
-    gif.style.left = x + 'px'
+    gif.style.top = y 
+    gif.style.left = x 
     document.body.appendChild(gif)
   }
 
@@ -55,7 +55,6 @@
   }
 
   document.body.style.backgroundColor = '#800000'
-  document.body.style.overflow = 'hidden'
   }
   
   window.addEventListener('load', setup)
