@@ -1,5 +1,5 @@
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Solitreo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nabla&display=swap");
 
  	h1 {
@@ -12,7 +12,7 @@
       font-size: 50px;
       line-height: 60px;
       word-wrap: anywhere; 
-    	font-family: "Solitreo", cursive;
+    	font-family: 'Bungee Spice', cursive;
     	font-style: auto-flow;
     }
 
@@ -27,13 +27,13 @@
 
 <script>
   
-  const gifWidth = 180
-  const gifHeight = 180
-  const numColumns = 1
-  const numRows = 1
-  const gifOffsetX = 5
-  const gifOffsetY = -window.innerHeight * 0.00001
-	const gifURL = 'https://cliply.co/wp-content/uploads/2021/09/CLIPLY_372109170_FREE_FIREWORKS_400.gif'
+  let gifWidth = 180
+  let gifHeight = 180
+  let numColumns = 1
+  let numRows = 1
+  let gifOffsetX = 5
+  let gifOffsetY = -window.innerHeight * 0.00001
+	let gifURL = 'https://cliply.co/wp-content/uploads/2021/09/CLIPLY_372109170_FREE_FIREWORKS_400.gif'
 
   function createGif(x, y) {
     const gif = document.createElement('img')
@@ -47,7 +47,7 @@
   function setup() {
     for (let r = 0; r < numRows; r++) {
       for (let c = 0; c < numColumns; c++) {
-        const x = c * gifWidth - gifOffsetX
+        const x = c * gifWidth - 2 * gifOffsetX
         const y = r * gifHeight + 4 * gifOffsetY
         createGif(x, y) 
         console.log ('created gif')
@@ -59,41 +59,6 @@
   }
   
   window.addEventListener('load', setup)
-
-</script>
-
-<script>
-  
-  const gifWidth = 180
-  const gifHeight = 180
-  const gifOffsetX = 5
-  const gifOffsetY = -window.innerHeight * 0.00001
-  const numColumns = 3
-  const numRows = 3
-	const gifURL = 'https://cutewallpaper.org/cdn-cgi/mirage/879d3f56044898301ccabab4a8a90586cd5663eca603a14193df05b49a03034b/1280/24/transparent-fireworks-gif/via-giphy-fireworks-gif-overlays-picsart-fireworks-animation.gif'
-
-  function createGif(x, y) {
-    const gif = document.createElement('img')
-    gif.src = gifURL + '#' + Math.random () // trick the browser to load diff images when you in fact have only one image
-    gif.style.position = 'absolute'
-    gif.style.top = y + 'px'
-    gif.style.left = x + 'px'
-    document.body.appendChild(gif)
-  }
-
-  function setup() {
-    for (let r = 0; r < numRows; r++) {
-      for (let c = 0; c < numColumns; c++) {
-        const x = c * gifWidth - gifOffsetX
-        const y = r * gifHeight - gifOffsetY
-        createGif(x, y) // abstraction
-        console.log ('created gif')
-    }
-  }
-  }
-
-    window.addEventListener('load', setup)
-
 
 </script>
 
